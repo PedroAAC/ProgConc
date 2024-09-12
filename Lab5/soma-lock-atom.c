@@ -8,7 +8,7 @@
 
 long int soma = 0; //variavel compartilhada entre as threads
 pthread_mutex_t mutex; //variavel de lock para exclusao mutua
-pthread_mutex_t cond:
+pthread_cond_t cond;
 
 //funcao executada pelas threads
 void *ExecutaTarefa (void *arg) {
@@ -36,6 +36,7 @@ void *ExecutaTarefa (void *arg) {
 void *extra (void *args) {
   printf("Extra : esta executando...\n");
   for (int i=0; i<10000; i++) {
+     pthread_cond_wait(&cond, &mutex);
      if (!(soma%10)) //imprime se 'soma' for multiplo de 10
         printf("soma = %ld \n", soma);
         pthread_cond_signal(&cond);
