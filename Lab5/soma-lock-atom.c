@@ -39,9 +39,10 @@ void *extra (void *args) {
   for (int i=0; i<10000; i++) {
      pthread_mutex_lock(&mutex);
      pthread_cond_wait(&divide, &mutex);
-     if (!(soma%10)) //imprime se 'soma' for multiplo de 10
+     if (!(soma%10)){ //imprime se 'soma' for multiplo de 10
         printf("soma = %ld \n", soma);
         pthread_cond_signal(&cond);
+     } 
      pthread_mutex_unlock(&mutex);
   }
   printf("Extra : terminou!\n");
