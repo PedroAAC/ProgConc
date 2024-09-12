@@ -88,6 +88,8 @@ int main(int argc, char *argv[]) {
 
    //--finaliza o mutex
    pthread_mutex_destroy(&mutex);
+   pthread_cond_destroy(&cond);
+   pthread_cond_destroy(&divide);
    
    printf("Valor de 'soma' = %ld\n", soma);
 
