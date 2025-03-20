@@ -32,7 +32,7 @@ int main(int argc, char* argv[]){
     }
 
     //criar as threads
-    for(int i=0; i<nthreads; i++){
+    for(long int i=0; i<nthreads; i++){
         pthread_create(&tid[i], NULL, say_colorado, (void*)i);
     }
 
